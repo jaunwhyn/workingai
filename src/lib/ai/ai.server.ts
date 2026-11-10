@@ -58,7 +58,7 @@ export function friendlyAiError(error: unknown): string {
 }
 
 export async function handleAiRequest(request: Request): Promise<Response> {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env["LOVABLE_API_KEY"];
   if (!apiKey) {
     return json({ error: "The AI service is not configured: the server is missing its LOVABLE_API_KEY." }, 500);
   }

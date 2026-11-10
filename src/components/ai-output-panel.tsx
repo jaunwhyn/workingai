@@ -170,7 +170,7 @@ export function AIOutputPanel({
             autoFocus
           />
         ) : hasContent ? (
-          <div className="prose-output text-sm leading-relaxed sm:text-[15px]">
+          <div className="text-sm leading-relaxed sm:text-[15px]">
             <MessageResponse isAnimating={ai.status === "streaming"}>{content}</MessageResponse>
           </div>
         ) : (
@@ -190,8 +190,10 @@ export function AIOutputPanel({
 
 function SourceList({ sources }: { sources: SourceUrlUIPart[] }) {
   return (
-    <Sources className="mt-6 rounded-xl border bg-card p-3 text-foreground">
-      <SourcesTrigger count={sources.length} />
+    <Sources defaultOpen className="mt-6 mb-0 rounded-xl border bg-card p-3 text-sm">
+      <SourcesTrigger count={sources.length}>
+        <p className="font-semibold">Verified web sources ({sources.length})</p>
+      </SourcesTrigger>
       <SourcesContent>
         {sources.map((s) => (
           <Source key={s.url} href={s.url} title={s.title || s.url} />

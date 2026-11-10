@@ -1,0 +1,73 @@
+/** Languages offered across every AI tool. The name is sent to the AI as the output language. */
+export const LANGUAGES = [
+  { name: "English", native: "English" },
+  { name: "Afrikaans", native: "Afrikaans" },
+  { name: "isiZulu", native: "isiZulu" },
+  { name: "isiXhosa", native: "isiXhosa" },
+  { name: "Sesotho", native: "Sesotho" },
+  { name: "Setswana", native: "Setswana" },
+  { name: "Sepedi", native: "Sepedi" },
+  { name: "Xitsonga", native: "Xitsonga" },
+  { name: "siSwati", native: "siSwati" },
+  { name: "Tshivenda", native: "Tshivenḓa" },
+  { name: "French", native: "Français" },
+  { name: "Spanish", native: "Español" },
+  { name: "Portuguese", native: "Português" },
+  { name: "German", native: "Deutsch" },
+  { name: "Italian", native: "Italiano" },
+  { name: "Dutch", native: "Nederlands" },
+  { name: "Swedish", native: "Svenska" },
+  { name: "Norwegian", native: "Norsk" },
+  { name: "Danish", native: "Dansk" },
+  { name: "Finnish", native: "Suomi" },
+  { name: "Polish", native: "Polski" },
+  { name: "Russian", native: "Русский" },
+  { name: "Ukrainian", native: "Українська" },
+  { name: "Greek", native: "Ελληνικά" },
+  { name: "Turkish", native: "Türkçe" },
+  { name: "Arabic", native: "العربية" },
+  { name: "Hebrew", native: "עברית" },
+  { name: "Hindi", native: "हिन्दी" },
+  { name: "Urdu", native: "اردو" },
+  { name: "Bengali", native: "বাংলা" },
+  { name: "Punjabi", native: "ਪੰਜਾਬੀ" },
+  { name: "Tamil", native: "தமிழ்" },
+  { name: "Telugu", native: "తెలుగు" },
+  { name: "Marathi", native: "मराठी" },
+  { name: "Gujarati", native: "ગુજરાતી" },
+  { name: "Chinese (Simplified)", native: "简体中文" },
+  { name: "Chinese (Traditional)", native: "繁體中文" },
+  { name: "Japanese", native: "日本語" },
+  { name: "Korean", native: "한국어" },
+  { name: "Thai", native: "ไทย" },
+  { name: "Vietnamese", native: "Tiếng Việt" },
+  { name: "Indonesian", native: "Bahasa Indonesia" },
+  { name: "Malay", native: "Bahasa Melayu" },
+  { name: "Filipino", native: "Filipino" },
+  { name: "Swahili", native: "Kiswahili" },
+  { name: "Amharic", native: "አማርኛ" },
+  { name: "Somali", native: "Soomaali" },
+  { name: "Yoruba", native: "Yorùbá" },
+  { name: "Igbo", native: "Igbo" },
+  { name: "Hausa", native: "Hausa" },
+  { name: "Romanian", native: "Română" },
+  { name: "Hungarian", native: "Magyar" },
+  { name: "Czech", native: "Čeština" },
+  { name: "Slovak", native: "Slovenčina" },
+  { name: "Bulgarian", native: "Български" },
+  { name: "Croatian", native: "Hrvatski" },
+  { name: "Serbian", native: "Српски" },
+  { name: "Persian", native: "فارسی" },
+  { name: "Nepali", native: "नेपाली" },
+  { name: "Irish", native: "Gaeilge" },
+] as const;
+
+export type LanguageName = (typeof LANGUAGES)[number]["name"];
+
+export const LANGUAGE_NAMES: readonly string[] = LANGUAGES.map((l) => l.name);
+
+export const RTL_LANGUAGES = new Set(["Arabic", "Hebrew", "Urdu", "Persian"]);
+
+export function isSupportedLanguage(value: string): value is LanguageName {
+  return LANGUAGE_NAMES.includes(value);
+}
